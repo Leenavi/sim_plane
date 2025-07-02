@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simplane.mapper.QuestionMapper">
+
+    <select id="readQuestionByTestId" resultType="com.simplane.domain.QuestionVO">
+        select * from sim_question where testid = #{testid} order by q_index asc
+    </select>
+
+    <select id="readQuestionByIndex" resultType="com.simplane.domain.QuestionVO">
+        select * from sim_question where testid = #{testid} and q_index = #{q_index}
+    </select>
+
+    <select id="existsQuestionAfter" resultType="boolean">
+        select exists(
+            select 1 from sim_question
+            where testid = #{testid} and q_index > #{q_index}
+        )
+    </select>
+
+</mapper>

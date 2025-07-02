@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simplane.mapper.MemberMapper">
+
+    <!-- MemberVO 매핑 -->
+    <resultMap type="com.simplane.domain.MemberVO" id="memberMap">
+        <id property="memberid" column="memberid"/>
+        <result property="userid" column="userid"/>
+        <result property="password" column="password"/>
+        <result property="birthdate" column="birthdate"/>
+        <result property="sex" column="sex"/>
+        <result property="name" column="name"/>
+        <collection property="authList" resultMap="authMap"/>
+    </resultMap>
+
+    <!-- AuthVO 매핑 -->
+    <resultMap type="com.simplane.domain.AuthVO" id="authMap">
+        <result property="memberid" column="auth_memberid"/>
+        <result property="auth" column="auth"/>
+    </resultMap>
+
+    <!-- 단일 회원 조회 + 권한 리스트 포함 -->
+    <select id="readByUserid" resultMap="memberMap">
+        SELECT
+        m.memberid, m.userid, m.password, m.birthdate, m.sex, m.name,
+        a.memberid AS auth_memberid, a.auth
+        FROM
+        sim_member m
+        LEFT OUTER JOIN sim_auth a ON m.memberid = a.memberid
+        WHERE
+        m.userid = #{userid}
+    </select>
+
+
+    <!-- 회원 정보 삽입 -->
+    <insert id="insert" parameterType="com.simplane.domain.MemberVO" useGeneratedKeys="true" keyProperty="memberid">
+        INSERT INTO sim_member (userid, password, birthdate, sex, name)
+        VALUES (#{userid}, #{password}, #{birthdate}, #{sex}, #{name})
+    </insert>
+
+    <!-- 권한 정보 삽입 -->
+    <insert id="insertAuth" parameterType="com.simplane.domain.AuthVO">
+        INSERT INTO sim_auth (memberid, auth)
+        VALUES (#{memberid}, #{auth})
+    </insert>
+
+</mapper>

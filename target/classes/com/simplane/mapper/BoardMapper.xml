@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simplane.mapper.BoardMapper">
+
+    <select id="read" resultType="com.simplane.domain.BoardVO">
+        SELECT * FROM sim_board WHERE boardid = #{boardid}
+    </select>
+
+    <select id="readAll" resultType="com.simplane.domain.BoardVO">
+        select * from sim_board where boardid > 0
+    </select>
+
+    <select id="getListWithPaging"
+            resultType="com.simplane.domain.BoardVO">
+        SELECT boardid, title, content, writer, regdate, imagepath
+        FROM sim_board
+        <include refid="criteria" />
+        ORDER BY boardid DESC
+        LIMIT #{amount} OFFSET #{offset}
+    </select>
+
+    <sql id="criteria">
+        <trim prefix="(" suffix=") and">
+            <foreach collection="typeArr" item="type" separator="or">
+
+                <if test="type == 'T'">
+                    title LIKE CONCAT('%', #{keyword}, '%')
+                </if>
+
+                <if test="type == 'C'">
+                    content LIKE CONCAT('%', #{keyword}, '%')
+                </if>
+
+                <if test="type == 'W'">
+                    writer LIKE CONCAT('%', #{keyword}, '%')
+                </if>
+
+            </foreach>
+        </trim>
+    </sql>
+
+    <select id="getTotalCount" resultType="int">
+        select count(*) from sim_board
+        where
+
+        <include refid="criteria" />
+
+        boardid > 0
+
+    </select>
+
+    <update id="update" parameterType="com.simplane.domain.BoardVO">
+        update sim_board
+        set title = #{title}, content = #{content}, imagepath = #{imagePath}
+        where boardid = #{boardid}
+    </update>
+
+    <insert id="create" parameterType="com.simplane.domain.BoardVO">
+        insert into sim_board (title, content, writer, imagePath)
+        values (#{title}, #{content}, #{writer}, #{imagePath})
+    </insert>
+
+    <insert id="createSelectKey">
+        <selectKey keyProperty="boardid" order="AFTER" resultType="Long">
+            select last_insert_id()
+        </selectKey>
+        insert into sim_board(title, content, writer, imagePath)
+        values(#{title}, #{content}, #{writer}, #{imagePath})
+    </insert>
+
+    <delete id="delete" parameterType="Long">
+        delete from sim_board where boardid = #{boardid}
+    </delete>
+
+</mapper>
