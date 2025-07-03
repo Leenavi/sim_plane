@@ -5,6 +5,7 @@
 <%@ include file="./includes/header.jsp" %>
 <link rel="stylesheet" href="<c:url value='/resources/dist/css/main.css' />" />
 
+
 <!-- MAIN -->
 <main>
 	<div id="slider">

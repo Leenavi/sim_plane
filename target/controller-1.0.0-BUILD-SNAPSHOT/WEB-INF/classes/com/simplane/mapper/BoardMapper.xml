@@ -22,33 +22,30 @@
     </select>
 
     <sql id="criteria">
-        <trim prefix="(" suffix=") and">
+        <trim prefix="(" suffix=") and" prefixOverrides="(">
             <foreach collection="typeArr" item="type" separator="or">
-
                 <if test="type == 'T'">
                     title LIKE CONCAT('%', #{keyword}, '%')
                 </if>
-
                 <if test="type == 'C'">
                     content LIKE CONCAT('%', #{keyword}, '%')
                 </if>
-
                 <if test="type == 'W'">
                     writer LIKE CONCAT('%', #{keyword}, '%')
                 </if>
-
             </foreach>
         </trim>
     </sql>
 
+
     <select id="getTotalCount" resultType="int">
-        select count(*) from sim_board
-        where
-
-        <include refid="criteria" />
-
-        boardid > 0
-
+        SELECT COUNT(*) FROM sim_board
+        <where>
+            <if test="type != null and keyword != null and keyword != ''">
+                <include refid="criteria" />
+            </if>
+            boardid > 0
+        </where>
     </select>
 
     <update id="update" parameterType="com.simplane.domain.BoardVO">

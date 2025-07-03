@@ -27,6 +27,7 @@ let replyService = (function() {
             type: 'get',
             url: '/replies/pages/' + testid + '/' + page,
             success: function(result) {
+                console.log("🔥 서버 응답:", result);  // ← 이거 꼭 추가
                 if (callback) callback(result.replyCnt, result.list);
             },
             error: function(xhr, status, err) {

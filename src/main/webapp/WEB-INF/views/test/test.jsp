@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../includes/header.jsp" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<link rel="stylesheet" href="<c:url value='/resources/dist/css/test.css' />" />
+
 
 <input type="hidden" id="testid" value="${testid}" />
 <c:choose>
@@ -45,7 +47,7 @@
             <button type="submit">작성</button>
         </form>
         <div id="comment-list"></div>
-        <div class="panel-footer"></div>
+        <div id="pagination"></div>
     </div>
 </div>
 
@@ -159,29 +161,57 @@
 
         // ✅ 페이징 처리
         function showReplyPage(replyCnt) {
+            console.log("📌 페이징 함수 진입!");
+
+            let paginationBox = document.querySelector("#pagination");
+
+            if (!paginationBox) {
+                console.warn("❌ #pagination 요소를 찾을 수 없습니다.");
+                return;
+            }
+
+            if (replyCnt <= 10) {
+                replyPageFooter.html(""); // 댓글 수가 10개 이하이면 페이징 출력 안 함
+                return;
+            }
             let endNum = Math.ceil(pageNum / 10.0) * 10;
             let startNum = endNum - 9;
+            let realEnd = Math.ceil(replyCnt / 10); // 실제 마지막 페이지 계산
+            endNum = Math.min(endNum, realEnd);     // ⭐ 실제 마지막 페이지까지만 표시
             let prev = startNum !== 1;
             let next = endNum * 10 < replyCnt;
 
+            console.log("startNum:", startNum, "endNum:", endNum, "pageNum:", pageNum, "prev:", prev, "next:", next);
+
+
             let str = "<ul class='pagination'>";
-            if (prev) str += `<li class='page-item'><a class='page-link' href='${startNum - 1}'>Previous</a></li>`;
+            if (prev) str += `<li class='page-item'><a class='page-link' href='${startNum - 1}'>이전</a></li>`;
             for (let i = startNum; i <= endNum; i++) {
                 let active = pageNum == i ? "active" : "";
-                str += `<li class='page-item ${active}'><a class='page-link' href='${i}'>${i}</a></li>`;
+                str += '<li class="page-item ' + active + '"><a class="page-link" href="' + i + '">' + i + '</a></li>';
+
             }
-            if (next) str += `<li class='page-item'><a class='page-link' href='${endNum + 1}'>Next</a></li>`;
+            if (next) str += `<li class='page-item'><a class='page-link' href='${endNum + 1}'>다음</a></li>`;
             str += "</ul>";
 
-            replyPageFooter.html(str);
+            $("#pagination").html(str);
+
+            console.log("페이징 HTML:", str);
         }
 
-        // ✅ 페이징 클릭 이벤트
-        replyPageFooter.on("click", "li a", function (e) {
+        // 🔥 이벤트 위임을 document로 확장 (모든 동적 요소 대응)
+        $(document).on("click", "#pagination li a", function (e) {
             e.preventDefault();
-            let targetPage = $(this).attr("href");
-            showList(targetPage);
+            const targetPage = $(this).attr("href");
+            const pageNumToLoad = parseInt(targetPage);
+
+            if (!isNaN(pageNumToLoad)) {
+                showList(pageNumToLoad);
+            } else {
+                console.warn("유효하지 않은 페이지 번호:", targetPage);
+            }
         });
+
     });
 </script>
 

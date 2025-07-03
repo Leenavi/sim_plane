@@ -21,17 +21,30 @@ public class PageDTO {
         this.cri = cri;
         this.total = total;
 
-        //Page
-        this.endPage = (int)(Math.ceil(cri.getPageNum()/10.0))*10;
-        this.startPage = this.endPage - 1;
+        // 한 페이지당 10개 기준으로 endPage 계산
+        this.endPage = (int)(Math.ceil(cri.getPageNum() / 10.0)) * 10;
+        this.startPage = this.endPage - 9;
 
-        //전체 페이지 목록에서 마지막 페이지
-        int realEnd = (int)((Math.ceil(total*1.0)/cri.getAmount()));
+        // 진짜 마지막 페이지 (총 게시물 수에 따라 결정)
+        int realEnd = (int)(Math.ceil((total * 1.0) / cri.getAmount()));
 
-        if(realEnd < this.endPage)
+        if (realEnd < this.endPage) {
             this.endPage = realEnd;
+        }
 
         this.prev = this.startPage > 1;
         this.next = this.endPage < realEnd;
+
+        // 디버깅용 출력
+        System.out.println("========== PageDTO 디버그 ==========");
+        System.out.println("총 게시글 수: " + total);
+        System.out.println("startPage: " + startPage);
+        System.out.println("endPage: " + endPage);
+        System.out.println("realEnd: " + realEnd);
+        System.out.println("next: " + next);
+        System.out.println("prev: " + prev);
+        System.out.println("===================================");
     }
+
+
 }

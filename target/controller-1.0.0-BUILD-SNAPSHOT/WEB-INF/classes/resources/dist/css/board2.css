@@ -1,0 +1,412 @@
+/* main.css */
+
+/* --- 기본 스타일 및 레이아웃 --- */
+body {
+    margin: 0;
+    font-family: 'BMJUA', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; /* 귀여운 폰트 추가 (BMJUA 예시) */
+    line-height: 1.6;
+    color: #444; /* 텍스트 색상 좀 더 부드럽게 */
+    background: linear-gradient(to bottom, #d4edff 0%, #e8f7ff 100%); /* 밝은 하늘색 그라데이션 배경 */
+    min-height: 100vh; /* 전체 화면 높이 확보 */
+    padding-bottom: 50px; /* footer 공간 확보 */
+}
+
+/* 구름 패턴 배경 (홈 화면 이미지 참고) */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px; /* 구름이 표시될 영역 높이 */
+    background: url('/resources/images/clouds.png') repeat-x top center; /* 구름 이미지 경로를 실제 경로로 변경해주세요 */
+    background-size: contain;
+    z-index: -1; /* 다른 요소 아래에 배치 */
+}
+
+
+.container {
+    max-width: 1200px; /* 컨테이너 최대 너비 지정 */
+    padding: 20px 15px;
+    margin: 40px auto 0; /* 상단 여백 추가 */
+    background-color: rgba(255, 255, 255, 0.9); /* 컨테이너 배경 반투명 흰색 */
+    border-radius: 20px; /* 둥근 모서리 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px; /* 양쪽 여백 조절 */
+}
+
+.col-lg-12 {
+    width: 100%;
+    padding: 0 15px;
+}
+
+/* --- 페이지 헤더 --- */
+.page-header {
+    font-size: 2.8em; /* 글자 크기 키움 */
+    color: #5b7cff; /* 파란 계열 색상 */
+    text-align: center;
+    margin: 40px 0 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #a8caff; /* 두꺼운 파스텔톤 밑줄 */
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* 그림자 효과 */
+}
+
+/* --- 패널 (게시판 컨테이너) --- */
+.panel {
+    margin-bottom: 30px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px; /* 더 둥근 모서리 */
+    overflow: hidden; /* 자식 요소 삐져나오지 않도록 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* 부드러운 그림자 */
+}
+
+.panel-heading {
+    padding: 15px 25px;
+    background: linear-gradient(to right, #91caff, #c2e1ff); /* 헤더 그라데이션 */
+    color: #fff; /* 글자색 흰색 */
+    font-weight: bold;
+    font-size: 1.2em;
+    border-top-left-radius: 14px; /* 패널 모서리와 맞춤 */
+    border-top-right-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* 버튼 오른쪽 정렬 */
+    height: 50px; /* 높이 조절 */
+}
+
+.panel-body {
+    padding: 25px;
+}
+
+/* --- 버튼 스타일 --- */
+.btn {
+    display: inline-flex; /* 텍스트와 아이콘을 정렬하기 위해 flexbox 사용 */
+    align-items: center; /* 수직 중앙 정렬 */
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px; /* 알약 모양 버튼 */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 버튼 그림자 */
+}
+
+.btn:hover {
+    transform: translateY(-2px); /* 호버 시 살짝 떠오르는 효과 */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.btn:active {
+    transform: translateY(1px); /* 클릭 시 살짝 눌리는 효과 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 새글 등록 버튼 */
+#regBtn.btn-info {
+    background-color: #ff91b1; /* 귀여운 핑크색 */
+    color: #fff;
+}
+#regBtn.btn-info:hover {
+    background-color: #ff7aa0;
+}
+
+/* 검색 버튼 */
+.btn-default {
+    background-color: #a8e0ff; /* 밝은 하늘색 */
+    color: #444;
+}
+.btn-default:hover {
+    background-color: #8cd3ff;
+}
+
+/* 모달 버튼 */
+.btn-danger {
+    background-color: #ff6f6f; /* 경고 빨간색 */
+    color: #fff;
+}
+.btn-danger:hover {
+    background-color: #e65c5c;
+}
+
+.btn-primary {
+    background-color: #6a9cff; /* 파란색 */
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: #5585e0;
+}
+
+.btn-xs {
+    padding: 8px 15px; /* 약간 더 크게 */
+    font-size: 0.9em;
+    border-radius: 20px;
+}
+
+
+/* --- 테이블 스타일 --- */
+.table {
+    width: 100%;
+    border-collapse: separate; /* border-spacing을 위해 */
+    border-spacing: 0 10px; /* 행 간격 추가 */
+    margin-bottom: 20px;
+}
+
+.table thead th {
+    padding: 15px 20px;
+    background-color: #e0f2ff; /* 헤더 배경색 */
+    border-bottom: 2px solid #a8caff; /* 하단 라인 강조 */
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+    font-size: 1.1em;
+    border-radius: 10px; /* 헤더 셀 모서리 둥글게 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.table tbody td {
+    padding: 15px 20px;
+    vertical-align: middle;
+    border: 1px solid #f0f0f0; /* 셀 테두리 연하게 */
+    background-color: #fff;
+    text-align: center;
+    color: #666;
+    border-radius: 10px; /* 바디 셀 모서리 둥글게 */
+}
+
+/* 첫 번째와 마지막 셀의 둥근 모서리 보정 */
+.table tbody tr:first-child td:first-child { border-top-left-radius: 10px; }
+.table tbody tr:first-child td:last-child { border-top-right-radius: 10px; }
+.table tbody tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+.table tbody tr:last-child td:last-child { border-bottom-right-radius: 10px; }
+
+
+.table-striped tbody tr:nth-child(odd) td {
+    background-color: #f9fcff; /* 줄무늬 배경색 */
+}
+
+.table-hover tbody tr:hover td {
+    background-color: #e9f7ff; /* 호버 시 배경색 */
+    cursor: pointer;
+    transform: translateY(-2px); /* 살짝 떠오르는 효과 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: all 0.2s ease-in-out;
+}
+
+/* 제목 링크 스타일 */
+.table tbody td a.move {
+    color: #6a9cff; /* 링크 색상 */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.table tbody td a.move:hover {
+    color: #337ab7; /* 호버 시 진해짐 */
+    text-decoration: underline;
+}
+
+/* --- 검색 영역 --- */
+#searchForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* 요소 간 간격 */
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f0f8ff; /* 검색 영역 배경색 */
+    border-radius: 15px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#searchForm select,
+#searchForm input[type="text"] {
+    height: 40px; /* 높이 조절 */
+    padding: 8px 15px;
+    border: 1px solid #c2e0ff; /* 테두리색 변경 */
+    border-radius: 20px; /* 둥근 모서리 */
+    font-size: 1em;
+    color: #555;
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+    transition: border-color 0.3s ease;
+}
+
+#searchForm select:focus,
+#searchForm input[type="text"]:focus {
+    border-color: #8cbbff;
+    outline: none;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08), 0 0 8px rgba(130, 180, 255, 0.4);
+}
+
+/* --- 페이징 처리 --- */
+.pagination {
+    display: flex; /* flexbox 사용하여 중앙 정렬 */
+    justify-content: center; /* 중앙 정렬 */
+    padding-left: 0;
+    margin: 40px 0 20px;
+    list-style: none; /* 기본 리스트 스타일 제거 */
+}
+
+.pagination > li {
+    display: inline-block;
+    margin: 0 5px; /* 페이지 번호 간격 */
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    display: block; /* 링크 영역 확장 */
+    padding: 10px 15px;
+    line-height: 1.42857143;
+    color: #6a9cff; /* 페이지 링크 색상 */
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #c2e0ff; /* 테두리 */
+    border-radius: 10px; /* 둥근 모서리 */
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+    color: #fff; /* 호버 시 흰색 */
+    background-color: #6a9cff; /* 호버 시 배경색 */
+    border-color: #6a9cff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #ff91b1; /* 활성화된 페이지 핑크색 */
+    border-color: #ff91b1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* 이전/다음 버튼 스타일 */
+.pagination > li:first-child a,
+.pagination > li:last-child a {
+    font-weight: bold;
+}
+
+
+/* --- 모달 스타일 (귀여운 테마에 맞게 조정) --- */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.4); /* 반투명 배경 */
+    backdrop-filter: blur(3px); /* 배경 블러 효과 */
+}
+
+.modal.show {
+    display: block;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-dialog {
+    position: relative;
+    max-width: 500px; /* 모달 너비 조절 */
+    margin: 10% auto; /* 상단 여백 및 중앙 정렬 */
+    transform: translateY(-50px); /* 초기 위치 */
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 톡톡 튀는 애니메이션 */
+}
+
+.modal.show .modal-dialog {
+    transform: translateY(0); /* 모달 표시 시 원래 위치 */
+}
+
+
+.modal-content {
+    background-color: #fff;
+    border: none; /* 테두리 제거 */
+    border-radius: 25px; /* 더 둥근 모서리 */
+    box-shadow: 0 10px 30px rgba(0,0,0,.15); /* 그림자 강화 */
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 20px 25px;
+    background: linear-gradient(to right, #ff91b1, #ffc8d5); /* 모달 헤더 그라데이션 */
+    color: #fff;
+    border-bottom: none; /* 하단 테두리 제거 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    font-size: 1.2em; /* 제목 크기 조절 */
+}
+
+.modal-header .close {
+    padding: 5px 10px;
+    font-size: 1.8em;
+    font-weight: normal; /* 볼드 해제 */
+    line-height: 1;
+    color: #fff; /* 흰색 X 버튼 */
+    opacity: 0.8;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%; /* 동그란 X 버튼 */
+    transition: opacity 0.2s ease;
+}
+
+.modal-header .close:hover,
+.modal-header .close:focus {
+    opacity: 1;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+.modal-body {
+    padding: 30px;
+    text-align: center;
+    font-size: 1.1em;
+    color: #666;
+}
+
+.modal-footer {
+    padding: 20px 25px;
+    text-align: right;
+    border-top: 1px solid #eee; /* 얇은 구분선 */
+    background-color: #f9f9f9;
+    border-bottom-left-radius: 24px; /* 모달 모서리와 맞춤 */
+    border-bottom-right-radius: 24px;
+}
+
+/* 추가적인 폰트 임포트 (Google Fonts 예시) */
+@import url('https://fonts.googleapis.com/css2?family=BM+JUA&display=swap');
+/* 'BMJUA' 폰트를 사용하려면 위 @import 구문을 CSS 파일 최상단에 추가하거나,
+   웹 폰트 로딩 코드를 <head> 태그에 직접 추가해야 합니다.
+   만약 사용하지 않는다면 body 폰트 목록에서 제거해주세요. */

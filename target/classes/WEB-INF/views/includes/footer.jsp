@@ -2,6 +2,7 @@
          pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="<c:url value='/resources/dist/css/main.css' />" />
 
+</div> <!-- content 닫기 -->
 <!-- FOOTER -->
 <footer>
     <img src="/resources/images/logo.png" width="50px">

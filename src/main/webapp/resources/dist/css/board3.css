@@ -1,0 +1,205 @@
+
+/* 게시판 패널 */
+.panel {
+    background: rgba(255,255,255,0.95);
+    border-radius: 24px;
+    box-shadow: 0 6px 24px rgba(100,150,255,0.13), 0 1.5px 3px rgba(0,0,0,0.04);
+    border: none;
+    margin-top: 24px;
+    padding: 0 0 16px 0;
+}
+
+/* 패널 헤더 */
+.panel-heading {
+    background: linear-gradient(90deg, #b2ebf2 0%, #e1bee7 100%);
+    border-radius: 24px 24px 0 0;
+    padding: 16px 32px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 새글 등록 버튼 */
+#regBtn {
+    background: #ffb74d;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 6px 18px;
+    font-size: 1rem;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(255,183,77,0.15);
+    cursor: pointer;
+}
+#regBtn:hover {
+    background: #ffa726;
+}
+
+/* 게시판 테이블 */
+.table {
+    width: 96%;
+    margin: 24px auto 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(100,150,255,0.06);
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.table th, .table td {
+    text-align: center;
+    padding: 14px 8px;
+    font-size: 1.05rem;
+}
+.table th {
+    background: #b3e5fc;
+    color: #444;
+    font-weight: 700;
+    border-bottom: 2px solid #90caf9;
+}
+.table tr {
+    transition: background 0.18s;
+}
+.table tr:hover {
+    background: #e1f5fe;
+}
+.table td {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* 검색폼 */
+#searchForm {
+    margin: 18px 0 0 0;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+#searchForm select, #searchForm input[type="text"] {
+    border: 1.5px solid #b3e5fc;
+    border-radius: 12px;
+    padding: 6px 14px;
+    font-size: 1rem;
+    background: #f8ffff;
+    outline: none;
+    transition: border-color 0.2s;
+}
+#searchForm select:focus, #searchForm input[type="text"]:focus {
+    border-color: #81d4fa;
+}
+#searchForm button {
+    background: #81d4fa;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 6px 18px;
+    font-size: 1rem;
+    margin-left: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#searchForm button:hover {
+    background: #4fc3f7;
+}
+
+/* 페이징 */
+.pagination {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin: 18px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+.page-item {
+    border-radius: 50%;
+    overflow: hidden;
+}
+.page-link {
+    display: block;
+    padding: 8px 14px;
+    background: #fff;
+    color: #1976d2;
+    border: 1.5px solid #b3e5fc;
+    border-radius: 50%;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+.page-item.active .page-link,
+.page-link:hover {
+    background: #b3e5fc;
+    color: #fff;
+}
+
+/* 모달 */
+.modal-content {
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 6px 24px rgba(100,150,255,0.13);
+}
+.modal-header {
+    background: #b2ebf2;
+    border-radius: 20px 20px 0 0;
+    color: #444;
+}
+.modal-footer {
+    border-radius: 0 0 20px 20px;
+    background: #f8ffff;
+}
+.btn-danger, .btn-primary {
+    border-radius: 12px;
+    padding: 6px 16px;
+    font-size: 1rem;
+    border: none;
+}
+.btn-danger {
+    background: #ef9a9a;
+    color: #fff;
+}
+.btn-danger:hover {
+    background: #e57373;
+}
+.btn-primary {
+    background: #81d4fa;
+    color: #fff;
+}
+.btn-primary:hover {
+    background: #4fc3f7;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .panel, .panel-heading, .table {
+        border-radius: 12px;
+        font-size: 0.96rem;
+    }
+    .panel-heading {
+        padding: 12px 12px;
+    }
+    .table th, .table td {
+        padding: 10px 4px;
+    }
+    #searchForm {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+
+.modal {
+    display: none; /* 기본은 숨김 */
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 1000;
+    /* 필요시 flex로 중앙 정렬 */
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.modal.show {
+    display: flex; /* show 클래스 붙으면 보임 */
+}

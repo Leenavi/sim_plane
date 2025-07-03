@@ -33,6 +33,8 @@ public class BoardController {
         int total = service.getTotal(cri);
 
         model.addAttribute("pageMaker", new PageDTO(cri, total));
+
+        log.info("### 전체 게시글 수: " + total);
     }
     
     //단 건 읽어오기

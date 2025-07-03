@@ -1,116 +1,6 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
-head{
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-}
-
-body {
-    background-color: #f0f9ff;
-    color: #333333;
-    font-family: 'Gowun Dodum', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url("/backgroundimage.png");
-    background-size: cover;
-}
-/*
-header {
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 20px 0;
-}
-
-#logo > a {
-    font-size: 28px;
-    font-weight: bold;
-    color: #4ea8de;
-    text-decoration: none;
-}
-
-#login li a {
-    color: #4ea8de;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-#login li a:hover {
-    color: #2d98da;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333333;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #2d98da;
-}*/
-
-body {
-    background-image: url("/resources/images/backgroundimage.png");
-    height: 100%;
-}
-
-
-/* 전체 헤더 수평 정렬 */
-.header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* 세로 기준 위 정렬 */
-    padding: 20px 30px;
-    background-color: white;
-}
-
-/* 로고 이미지 크게 */
-#logo img {
-    height: 100px; /* 세로로 크게 보이게 */
-    width: auto;
-}
-
-/* 오른쪽 묶음 (로그인 + nav) 수직 정렬 */
-.right-block {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* 오른쪽 정렬 */
-    gap: 10px;
-    margin-right: 100px; /* ← 오른쪽에서 50px 안쪽으로 이동 */
-}
-
-/* 로그인 메뉴 정렬 */
-#login ul {
-    display: flex;
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-    margin: 50px, 0, 0, 0;
-}
-
-/* nav 메뉴 가로 정렬 */
-nav ul {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    margin-right: 20px;
-}
-
-/* nav 링크 스타일 */
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: color 0.3s;
-    font-size: 20px;
-    margin-right: 70px;
-}
-
-nav ul li a:hover {
-    color: #2d98da;
-}
-s
 main h3 {
     text-align: center;
 }
@@ -171,10 +61,13 @@ section h4 {
     color: #4ea8de;
 }
 
-footer {
-    background-color: white;
-    text-align: center;
-    font-size: 13px;
-    color: #444;
-    height: 150px;
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
+
+.content {
+    flex: 1;
+}
+

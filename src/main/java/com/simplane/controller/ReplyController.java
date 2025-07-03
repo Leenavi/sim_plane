@@ -40,9 +40,9 @@ public class ReplyController {
                                                  @PathVariable("testid") Long testid,
                                                  @PathVariable("page") int page
     ){
-        log.info("getLlist.....");
-
         Criteria cri = new Criteria(page, 10);
+
+        log.info("getLlist.....");
 
         return new ResponseEntity<>(replyService.getListPage(cri, testid), HttpStatus.OK);
     }
