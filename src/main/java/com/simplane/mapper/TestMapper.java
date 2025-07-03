@@ -9,5 +9,10 @@ public interface TestMapper {
 
     List<TestVO> readAllTests();
 
+    // 테스트 삽입
+    void insertTest(TestVO test);
+
+
+    void deleteTest(int testid);
 
 }

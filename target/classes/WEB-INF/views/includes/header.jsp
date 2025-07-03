@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<!--프레임워크 태그라이브러리 선언 "sec"-->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <link rel="stylesheet" href="<c:url value='/resources/dist/css/header.css' />" />
 <!DOCTYPE html>
@@ -12,8 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
-
 
     <title>simplane</title>
 
@@ -54,14 +52,24 @@
                         <li><a href="/test/list">심리테스트</a></li>
                         <li><a href="/fortune/list">운세</a></li>
                         <li><a href="#">궁합</a></li>
-                        <li><a href="#">포춘쿠키</a></li>
+                        <li><a href="#" id="openFortuneCookieModalLink">포춘쿠키</a></li>
                         <li><a href="/board/list">문의게시판</a></li>
+                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+                            <li><a href="/test/createTest">테스트생성</a></li>
+                        </sec:authorize>
                     </ul>
                 </nav>
             </div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
 
     </header>
+
+    <div id="fortuneCookieModalWrapper" class="popup-overlay hidden"></div>
+
+    <script src="${pageContext.request.contextPath}/resources/js/header.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <main class="content">

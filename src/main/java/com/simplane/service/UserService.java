@@ -17,4 +17,6 @@ public interface UserService {
      * @return 회원 정보
      */
     MemberVO getUserById(String userid);
+
+    boolean isAdmin(String name);
 }

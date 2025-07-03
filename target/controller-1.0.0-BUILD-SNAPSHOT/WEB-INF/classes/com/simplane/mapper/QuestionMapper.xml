@@ -14,9 +14,22 @@
 
     <select id="existsQuestionAfter" resultType="boolean">
         select exists(
-            select 1 from sim_question
-            where testid = #{testid} and q_index > #{q_index}
+        select 1 from sim_question
+        where testid = #{testid} and q_index > #{q_index}
         )
     </select>
+
+    <insert id="insertQuestion" useGeneratedKeys="true" keyProperty="questionid" keyColumn="questionid">
+        INSERT INTO sim_question (testid, question, q_index)
+        VALUES (#{testid}, #{question}, #{q_index})
+    </insert>
+
+    <select id="getQuestionsByTestId" resultType="com.simplane.domain.QuestionVO">
+        SELECT * FROM sim_question WHERE testid = #{testid}
+    </select>
+
+    <delete id="deleteQuestionsByTestId">
+        DELETE FROM sim_question WHERE testid = #{testid}
+    </delete>
 
 </mapper>

@@ -46,4 +46,9 @@
         VALUES (#{memberid}, #{auth})
     </insert>
 
+    <!--권한 목록 조회-->
+    <select id="readAuthByMemberid" resultType="com.simplane.domain.AuthVO">
+        SELECT * FROM sim_auth WHERE memberid = #{memberid}
+    </select>
+
 </mapper>

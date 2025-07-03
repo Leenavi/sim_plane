@@ -11,7 +11,7 @@ import lombok.*;
 public class AnswerVO {
 
     private Long answerid;
-    private Long anserid;
+    private Long questionid;
     private String answer;
     private int score;
     private String type;

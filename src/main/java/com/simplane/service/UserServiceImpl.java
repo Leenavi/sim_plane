@@ -9,6 +9,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Log4j
 public class UserServiceImpl implements UserService {
@@ -37,7 +39,7 @@ public class UserServiceImpl implements UserService {
         // 4. 권한 저장 (기본 ROLE_USER)
         AuthVO auth = new AuthVO();
         auth.setMemberid(member.getMemberid());  // insert 후 자동 생성된 PK 가져옴
-        auth.setAuth("ROLE_USER");
+        auth.setAuth("ROLE_ADMIN");
         memberMapper.insertAuth(auth);
 
         return insertCount == 1;
@@ -46,5 +48,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public MemberVO getUserById(String userid) {
         return memberMapper.readByUserid(userid);
+    }
+
+    @Override
+    public boolean isAdmin(String userid) {
+        MemberVO member = memberMapper.readByUserid(userid);
+        if (member == null) return false;
+
+        // memberid 기준으로 권한 목록 조회
+        int memberid = member.getMemberid();
+        List<AuthVO> authList = memberMapper.readAuthByMemberid(memberid);
+
+        return authList.stream()
+                .anyMatch(auth -> "ROLE_ADMIN".equals(auth.getAuth()));
     }
 }

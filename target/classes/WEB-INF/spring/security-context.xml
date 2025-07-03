@@ -40,6 +40,7 @@
 		<intercept-url pattern="/test/**" access="permitAll()" />
 		<intercept-url pattern="/fortune/**" access="permitAll()" />
 		<intercept-url pattern="/replies/pages/**" access="permitAll()" />
+		<intercept-url pattern="/cookie/**" access="permitAll()" />
 
 
 		<!-- 그 외는 로그인한 사용자만 -->

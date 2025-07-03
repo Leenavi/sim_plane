@@ -13,4 +13,13 @@
         ]]>
     </select>
 
+    <insert id="insertResult" useGeneratedKeys="true" keyProperty="resultid" keyColumn="resultid">
+        INSERT INTO sim_result (testid, totalscore, resulttype, result)
+        VALUES (#{testid}, #{totalScore}, #{resultType}, #{result})
+    </insert>
+
+    <delete id="deleteResultsByTestId">
+        DELETE FROM sim_result WHERE testid = #{testid}
+    </delete>
+
 </mapper>

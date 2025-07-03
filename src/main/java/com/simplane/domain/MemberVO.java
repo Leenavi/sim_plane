@@ -16,6 +16,4 @@ public class MemberVO {
     private int sex;
     private String name;
     private List<AuthVO> authList;
-
-
 }
