@@ -3,6 +3,7 @@ package com.simplane.domain;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,4 +19,7 @@ public class BoardVO {
     private Date regDate;
     private String imagePath;
     private String writer;
+
+    // 이미지 정보 리스트 추가
+    private List<ImgPathVO> imageList;
 }

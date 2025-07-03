@@ -18,38 +18,42 @@
 
 
 <div class="container">
+    <div class="test-wrapper"> <!-- ✅ 카드형 박스 wrapper -->
 
-    <!-- ✅ 테스트 영역 -->
-    <div id="test-section">
-        <h2>심리테스트</h2>
-        <div id="question-box"></div>
-        <div id="choices-box"></div>
-    </div>
+        <!-- ✅ 테스트 영역 -->
+        <div id="test-section">
+            <h2>심리테스트</h2>
+            <div id="question-box"></div>
+            <div id="choices-box"></div>
+        </div>
 
-    <!-- ✅ 결과 영역 -->
-    <div id="result-section" style="display: none;">
-        <h2>테스트 결과</h2>
-        <div id="result-box"></div>
-        <button onclick="restartTest()">다시 테스트하기</button>
-    </div>
+        <!-- ✅ 결과 영역 -->
+        <div id="result-section" style="display: none;">
+            <h2>테스트 결과</h2>
+            <div id="result-box"></div>
+            <button onclick="restartTest()">다시 테스트하기</button>
+        </div>
 
-    <hr>
+        <hr>
 
-    <form action="/test/list" method="get" style="margin-bottom: 20px;">
-        <button type="submit">목록</button>
-    </form>
-
-    <!-- ✅ 댓글 영역 -->
-    <div id="comment-section">
-        <h3>댓글</h3>
-        <form id="comment-form">
-            <textarea id="comment-content" rows="3" cols="50" placeholder="댓글을 입력하세요"></textarea>
-            <button type="submit">작성</button>
+        <form action="/test/list" method="get" style="margin-bottom: 20px;">
+            <button type="submit">목록</button>
         </form>
-        <div id="comment-list"></div>
-        <div id="pagination"></div>
-    </div>
+
+        <!-- ✅ 댓글 영역 -->
+        <div id="comment-section">
+            <h3>댓글</h3>
+            <form id="comment-form">
+                <textarea id="comment-content" rows="3" cols="50" placeholder="댓글을 입력하세요"></textarea>
+                <button type="submit">작성</button>
+            </form>
+            <div id="comment-list"></div>
+            <div id="pagination"></div>
+        </div>
+
+    </div> <!-- /.test-wrapper -->
 </div>
+
 
 <!-- ✅ JS -->
 <script type="text/javascript">

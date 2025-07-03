@@ -2,6 +2,7 @@ package com.simplane.mapper;
 
 import com.simplane.domain.BoardVO;
 import com.simplane.domain.Criteria;
+import com.simplane.domain.ImgPathVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -23,4 +24,8 @@ public interface BoardMapper {
     public int getTotalCount(Criteria cri);
 
     public void createSelectKey(BoardVO board); // 게시글 등록하면 게시글의 번호도 자동으로 같이 가져옴
+
+    public List<ImgPathVO> getImageList(Long boardid);
+    public void deleteImg(Long boardid);
+    public void createImg(ImgPathVO img); //이미지 정보 등록
 }

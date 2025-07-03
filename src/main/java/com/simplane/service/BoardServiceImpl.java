@@ -2,6 +2,7 @@ package com.simplane.service;
 
 import com.simplane.domain.BoardVO;
 import com.simplane.domain.Criteria;
+import com.simplane.domain.ImgPathVO;
 import com.simplane.mapper.BoardMapper;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
@@ -53,5 +54,20 @@ public class BoardServiceImpl implements BoardService {
     public boolean remove(Long boardid){
         log.info("remove...");
         return mapper.delete(boardid) == 1; //삭제 성공시 1반환 => true, false로 변환
+    }
+
+    @Override
+    public List<ImgPathVO> getImageList(Long boardid) {
+        return mapper.getImageList(boardid);
+    }
+
+    @Override
+    public void deleteImg(Long boardid) {
+        mapper.deleteImg(boardid);
+    }
+
+    @Override
+    public void createImg(ImgPathVO img) {
+        mapper.createImg(img);
     }
 }

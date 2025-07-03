@@ -2,6 +2,7 @@ package com.simplane.controller;
 
 import com.simplane.domain.BoardVO;
 import com.simplane.domain.Criteria;
+import com.simplane.domain.ImgPathVO;
 import com.simplane.domain.PageDTO;
 import com.simplane.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -44,6 +45,7 @@ public class BoardController {
 
         model.addAttribute("board", service.get(boardid));
         model.addAttribute("cri", cri);
+        model.addAttribute("images", service.getImageList(boardid));
     }
 
     // 데이터 수정
@@ -71,9 +73,20 @@ public class BoardController {
     }
 
     @PostMapping("/register")
-    public String register(BoardVO boardVO, RedirectAttributes rttr) {
+    public String register(BoardVO boardVO,
+                           @RequestParam(value = "imagePaths", required = false) List<String> imagePaths,
+                           RedirectAttributes rttr) {
         log.info("register.....");
         service.register(boardVO);
+
+        if(imagePaths != null){
+            for(String path : imagePaths){
+                ImgPathVO img = new ImgPathVO(null, boardVO.getBoardid(), path);
+                service.createImg(img);
+            }
+        }
+
+
         rttr.addFlashAttribute("result", boardVO.getBoardid());
         return "redirect:/board/list";
     }

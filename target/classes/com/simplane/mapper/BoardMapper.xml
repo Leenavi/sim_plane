@@ -14,7 +14,7 @@
 
     <select id="getListWithPaging"
             resultType="com.simplane.domain.BoardVO">
-        SELECT boardid, title, content, writer, regdate, imagepath
+        SELECT boardid, title, content, writer, regdate
         FROM sim_board
         <include refid="criteria" />
         ORDER BY boardid DESC
@@ -50,25 +50,41 @@
 
     <update id="update" parameterType="com.simplane.domain.BoardVO">
         update sim_board
-        set title = #{title}, content = #{content}, imagepath = #{imagePath}
+        set title = #{title}, content = #{content}
         where boardid = #{boardid}
     </update>
 
     <insert id="create" parameterType="com.simplane.domain.BoardVO">
-        insert into sim_board (title, content, writer, imagePath)
-        values (#{title}, #{content}, #{writer}, #{imagePath})
+        insert into sim_board (title, content, writer)
+        values (#{title}, #{content}, #{writer})
     </insert>
 
     <insert id="createSelectKey">
         <selectKey keyProperty="boardid" order="AFTER" resultType="Long">
             select last_insert_id()
         </selectKey>
-        insert into sim_board(title, content, writer, imagePath)
-        values(#{title}, #{content}, #{writer}, #{imagePath})
+        insert into sim_board(title, content, writer)
+        values(#{title}, #{content}, #{writer})
     </insert>
 
     <delete id="delete" parameterType="Long">
         delete from sim_board where boardid = #{boardid}
     </delete>
+
+    <!--이미지 업로드-->
+    <insert id="createImg">
+        insert into sim_imgpath (boardid, imagePath)
+        values (#{boardid}, #{imagePath})
+    </insert>
+
+    <!--이미지 삭제-->
+    <delete id="deleteImg">
+        delete from sim_imgpath where boardid = #{boardid}
+    </delete>
+
+    <!--이미지 조회-->
+    <select id="getImageList" resultType="com.simplane.domain.ImgPathVO">
+        select * from sim_imgpath where boardid = #{boardid}
+    </select>
 
 </mapper>

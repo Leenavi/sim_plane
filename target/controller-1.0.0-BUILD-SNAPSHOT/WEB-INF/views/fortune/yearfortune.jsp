@@ -1,28 +1,34 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../includes/header.jsp" %>
-<link rel="stylesheet" href="<c:url value='/resources/dist/css/main.css' />" />
+<link rel="stylesheet" href="<c:url value='/resources/dist/css/fortune.css' />" />
 
 
-<h2>띠별 운세 보기 (2025)</h2>
+<div class="fortune-center">
+    <div class="fortune-card">
+        <h2>띠별 운세 보기 (2025)</h2>
 
-<form id="fortuneForm">
-    출생 연도 입력:
-    <input type="number" id="birthYear" name="birthYear"/>
-    <button type="submit">운세 확인</button>
-</form>
+        <form id="fortuneForm">
+            <label for="birthYear" class="fortune-label">출생 연도 입력</label>
+            <input type="number" id="birthYear" name="birthYear" class="fortune-input" placeholder="예: 1994"/>
+            <button type="submit" class="fortune-btn">운세 확인</button>
+        </form>
 
-<hr>
+        <hr>
 
-<div id="result" style="display:none;">
-    <h3>운세 결과</h3>
-    <p><strong>요약:</strong><span id="summary"></span></p>
-    <ul>
-        <li>❤️ 사랑운: <span id="love"></span></li>
-        <li>💰 금전운: <span id="money"></span></li>
-        <li>💼 커리어: <span id="career"></span></li>
-        <li>💪 건강: <span id="health"></span></li>
-    </ul>
+        <div id="result" style="display:none;">
+            <h3>운세 결과</h3>
+            <p><strong>요약:</strong> <span id="summary"></span></p>
+            <ul>
+                <li>❤️ 사랑운: <span id="love"></span></li>
+                <li>💰 금전운: <span id="money"></span></li>
+                <li>💼 커리어: <span id="career"></span></li>
+                <li>💪 건강: <span id="health"></span></li>
+            </ul>
+        </div>
+    </div>
 </div>
+
 
 
 

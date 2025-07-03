@@ -1,0 +1,136 @@
+
+
+.fortune-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.fortune-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.09), 0 1.5px 4px rgba(0,0,0,0.04);
+    padding: 40px 32px;
+    max-width: 400px;
+    width: 100%;
+    margin: 32px 0;
+    text-align: center;
+}
+
+.fortune-card h2 {
+    margin-bottom: 28px;
+    color: #2d3a4b;
+    font-weight: 700;
+}
+
+.fortune-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fortune-list li {
+    margin-bottom: 18px;
+}
+
+.fortune-list a {
+    display: block;
+    background: #f7fafd;
+    color: #4f8cff;
+    font-size: 1.17em;
+    padding: 14px 0;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.fortune-list a:hover {
+    background: #4f8cff;
+    color: #fff;
+}
+
+.fortune-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+
+.fortune-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.09), 0 1.5px 4px rgba(0,0,0,0.04);
+    padding: 40px 32px 32px 32px;
+    max-width: 420px;
+    width: 100%;
+    margin: 32px 0;
+    text-align: center;
+}
+
+.fortune-card h2 {
+    margin-bottom: 26px;
+    color: #2d3a4b;
+    font-weight: 700;
+}
+
+.fortune-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #4f8cff;
+    font-size: 1.1em;
+}
+
+.fortune-input {
+    width: 70%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #dbeafe;
+    font-size: 1.1em;
+    margin-bottom: 18px;
+}
+
+.fortune-btn {
+    background: #4f8cff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 22px;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.fortune-btn:hover {
+    background: #2563eb;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e3e8ee;
+    margin: 28px 0;
+}
+
+#result h3 {
+    color: #2563eb;
+    margin-bottom: 12px;
+}
+
+#result ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#result li {
+    background: #f7fafd;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    font-size: 1.07em;
+}
