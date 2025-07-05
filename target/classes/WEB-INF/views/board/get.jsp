@@ -28,7 +28,20 @@
         <pre style="white-space: pre-wrap; margin: 0; border: none; background-color: white;"><c:out value="${board.content}" /></pre>
       </td>
     </tr>
+
   </table>
+
+  <c:if test="${not empty images}">
+    <h4>첨부 이미지</h4>
+    <div class="row mb-3">
+      <c:forEach var="img" items="${images}">
+        <div class="col-md-3 mb-3">
+          <img src="<c:url value='/display?fileName=${img.imagePath}' />"
+               alt="첨부 이미지" class="img-fluid img-thumbnail" />
+        </div>
+      </c:forEach>
+    </div>
+  </c:if>
 
 
   <sec:authentication property="principal" var="pinfo" />

@@ -2,6 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <link rel="stylesheet" href="<c:url value='/resources/dist/css/header.css' />" />
 <!DOCTYPE html>
 <html lang="ko">
@@ -57,6 +58,9 @@
                         <sec:authorize access="hasRole('ROLE_ADMIN')">
                             <li><a href="/test/createTest">테스트생성</a></li>
                         </sec:authorize>
+                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+                            <li><a href="/memberList">회원 관리</a></li>
+                        </sec:authorize>
                     </ul>
                 </nav>
             </div>
@@ -71,5 +75,6 @@
     <script src="${pageContext.request.contextPath}/resources/js/header.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
     <main class="content">

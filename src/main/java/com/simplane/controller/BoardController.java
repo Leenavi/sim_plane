@@ -13,7 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList; // 추가
 import java.util.List;
+import java.util.stream.Collectors; // 추가
 
 @Controller
 @RequestMapping("/board")
@@ -37,7 +39,7 @@ public class BoardController {
 
         log.info("### 전체 게시글 수: " + total);
     }
-    
+
     //단 건 읽어오기
     @GetMapping({"/get", "/modify"})
     public void get(@RequestParam Long boardid, Criteria cri, Model model) {
@@ -45,29 +47,36 @@ public class BoardController {
 
         model.addAttribute("board", service.get(boardid));
         model.addAttribute("cri", cri);
-        model.addAttribute("images", service.getImageList(boardid));
+        model.addAttribute("images", service.getImageList(boardid)); // 현재 연결된 이미지 목록
     }
 
     // 데이터 수정
     @PostMapping("/modify")
-    public String modify(BoardVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
-        log.info("modify.....2");
-        log.info("service is null? " + (service == null));
+    public String modify(
+            BoardVO board,
+            @ModelAttribute("cri") Criteria cri,
+            @RequestParam(value = "imagePaths", required = false) List<String> imagePaths, // JSP에서 보낸 모든 이미지 경로
+            RedirectAttributes rttr) {
 
+        log.info("modify..... 게시글 수정 처리");
         log.info("boardid: " + board.getBoardid());
         log.info("title: " + board.getTitle());
         log.info("content: " + board.getContent());
+        log.info("전달받은 imagePaths: " + imagePaths);
 
-
-        if(service.modify(board)) {
+        // 서비스 계층으로 boardVO와 이미지 경로 리스트를 함께 전달
+        if(service.modifyBoardAndImages(board, imagePaths)) {
             rttr.addFlashAttribute("result", "수정 되었습니다.");
+        } else {
+            rttr.addFlashAttribute("result", "수정 실패했습니다."); // 수정 실패 메시지 추가
         }
+
         rttr.addAttribute("pageNum", cri.getPageNum());
         rttr.addAttribute("amount", cri.getAmount());
         rttr.addAttribute("type", cri.getType());
         rttr.addAttribute("keyword", cri.getKeyword());
 
-        log.info("modify.....3");
+        log.info("modify..... 수정 처리 완료");
 
         return "redirect:/board/list";
     }
@@ -77,15 +86,17 @@ public class BoardController {
                            @RequestParam(value = "imagePaths", required = false) List<String> imagePaths,
                            RedirectAttributes rttr) {
         log.info("register.....");
+        // 먼저 게시글 등록
         service.register(boardVO);
+        log.info("register boardid: " + boardVO.getBoardid()); // 등록 후 boardid가 설정되었는지 확인
 
-        if(imagePaths != null){
-            for(String path : imagePaths){
-                ImgPathVO img = new ImgPathVO(null, boardVO.getBoardid(), path);
-                service.createImg(img);
-            }
+        if(imagePaths != null && !imagePaths.isEmpty()){
+            // ImgPathVO 리스트 생성
+            List<ImgPathVO> imgList = imagePaths.stream()
+                    .map(path -> new ImgPathVO(null, boardVO.getBoardid(), path))
+                    .collect(Collectors.toList());
+            service.addImages(imgList); // 일괄 추가 메서드 호출
         }
-
 
         rttr.addFlashAttribute("result", boardVO.getBoardid());
         return "redirect:/board/list";
@@ -95,11 +106,18 @@ public class BoardController {
     public String remove(@RequestParam("boardid") Long boardid, @ModelAttribute("cri") Criteria cri ,
                          RedirectAttributes rttr) {
         log.info("remove..." + boardid);
-//        log.info("remove...writer..." + writer);
 
-        if (service.remove(boardid)) {
+        // 게시글 삭제 시 관련 이미지도 함께 삭제하도록 서비스 호출
+        if (service.removeBoardAndImages(boardid)) {
             rttr.addFlashAttribute("result", "삭제를 성공했습니다.");
+        } else {
+            rttr.addFlashAttribute("result", "삭제 실패했습니다.");
         }
+        // 삭제 후 목록 페이지로 리다이렉트 시 검색 조건 유지
+        rttr.addAttribute("pageNum", cri.getPageNum());
+        rttr.addAttribute("amount", cri.getAmount());
+        rttr.addAttribute("type", cri.getType());
+        rttr.addAttribute("keyword", cri.getKeyword());
         return "redirect:/board/list";
     }
 

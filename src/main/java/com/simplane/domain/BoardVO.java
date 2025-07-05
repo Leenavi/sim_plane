@@ -17,7 +17,6 @@ public class BoardVO {
     private String title;
     private String content;
     private Date regDate;
-    private String imagePath;
     private String writer;
 
     // 이미지 정보 리스트 추가

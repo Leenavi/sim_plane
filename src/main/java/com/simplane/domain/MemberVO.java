@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 public class MemberVO {
 
-    private Integer memberid;
+    private Long memberid;
     private String userid;
     private String password;
     private Date birthdate;

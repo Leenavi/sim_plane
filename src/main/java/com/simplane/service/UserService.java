@@ -1,6 +1,9 @@
 package com.simplane.service;
 
+import com.simplane.domain.AuthVO;
 import com.simplane.domain.MemberVO;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -19,4 +22,8 @@ public interface UserService {
     MemberVO getUserById(String userid);
 
     boolean isAdmin(String name);
+
+    public void updateAuth(AuthVO auth);
+
+    public List<MemberVO> getAllMembers();
 }

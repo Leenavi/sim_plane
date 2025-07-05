@@ -63,11 +63,24 @@
     <div class="test-grid">
         <c:forEach var="test" items="${testList}">
             <a href="/test/start?testid=${test.testid}" class="test-card-link">
-            <div class="test-card">
-                <div class="blank"></div> <!-- 상단 빈 공간 -->
-                <h3>${test.testName}</h3>
-                <button>테스트 시작</button>
-            </div>
+                <div class="test-card">
+                    <div class="blank"></div> <!-- 상단 빈 공간 -->
+                    <h3>${test.testName}</h3>
+
+                    <div class="button-group" style="display: flex; justify-content: center; gap: 10px;">
+                        <form action="/test/start" method="get">
+                            <input type="hidden" name="testid" value="${test.testid}" />
+                            <button type="submit">테스트 시작</button>
+                        </form>
+
+                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+                            <form action="/test/deleteTest" method="post" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+                                <input type="hidden" name="testid" value="${test.testid}" />
+                                <button type="submit">삭제</button>
+                            </form>
+                        </sec:authorize>
+                    </div>
+                </div>
             </a>
         </c:forEach>
     </div>

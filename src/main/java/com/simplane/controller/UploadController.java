@@ -70,7 +70,7 @@ public class UploadController {
 
         Date date = new Date();
         String str = sdf.format(date); //2025-06-30
-        return str.replace("-", File.separator); //윈도우 : 2025-06-30 -> 2025\06\30
+        return str.replace("-", "/"); //윈도우 : 2025-06-30 -> 2025\06\30
     }
 
     //이미지 파일인지 확인하는 메소드

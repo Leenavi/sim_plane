@@ -51,4 +51,18 @@
         SELECT * FROM sim_auth WHERE memberid = #{memberid}
     </select>
 
+    <update id="updateAuthByMemberid" parameterType="com.simplane.domain.AuthVO">
+        update sim_auth
+        set auth = #{auth}
+        where memberid=#{memberid}
+    </update>
+
+    <select id="readAllMembers" resultMap="memberMap">
+        select
+        m.memberid, m.userid, m.password, m.birthdate, m.sex, m.name,
+        a.memberid as auth_memberid, a.auth
+        from sim_member m
+        left outer join sim_auth a on m.memberid = a.memberid
+    </select>
+
 </mapper>

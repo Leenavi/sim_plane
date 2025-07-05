@@ -15,5 +15,9 @@ public interface MemberMapper {
     int insertAuth(AuthVO auth);
 
 
-    List<AuthVO> readAuthByMemberid(int memberid);
+    List<AuthVO> readAuthByMemberid(Long memberid);
+
+    public int updateAuthByMemberid(AuthVO auth);
+
+    public List<MemberVO> readAllMembers();
 }

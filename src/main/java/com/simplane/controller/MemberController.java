@@ -1,5 +1,6 @@
 package com.simplane.controller;
 
+import com.simplane.domain.AuthVO;
 import com.simplane.domain.MemberVO;
 import com.simplane.service.UserService;
 import lombok.extern.log4j.Log4j;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.List;
 
 @Controller
 @Log4j
@@ -106,5 +108,23 @@ public class MemberController {
         boolean exists = userService.getUserById(userid) != null;
         return exists ? "unavailable" : "available";
     }
+    @GetMapping("/memberList")
+    public String members(Model model) {
+        List<MemberVO> memberList = userService.getAllMembers();
+        model.addAttribute("memberList", memberList);
+        return "admin/memberList";
+    }
+
+    @PostMapping("/updateAuth")
+    public String updateAuth(
+            @RequestParam("memberid") Long memberid, @RequestParam("auth") String auth) {
+        AuthVO authVO = new AuthVO();
+        authVO.setAuth(auth);
+        authVO.setMemberid(memberid);
+        userService.updateAuth(authVO);
+
+        return "redirect:/memberList";
+    }
+
 
 }

@@ -56,10 +56,20 @@ public class UserServiceImpl implements UserService {
         if (member == null) return false;
 
         // memberid 기준으로 권한 목록 조회
-        int memberid = member.getMemberid();
+        Long memberid = member.getMemberid();
         List<AuthVO> authList = memberMapper.readAuthByMemberid(memberid);
 
         return authList.stream()
                 .anyMatch(auth -> "ROLE_ADMIN".equals(auth.getAuth()));
+    }
+
+    @Override
+    public void updateAuth(AuthVO vo) {
+        memberMapper.updateAuthByMemberid(vo);
+    }
+
+    @Override
+    public List<MemberVO> getAllMembers() {
+        return memberMapper.readAllMembers();
     }
 }

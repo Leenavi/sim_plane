@@ -26,7 +26,7 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                <table width="100%" class="table table-striped table-bordered table-hover">
+                <table class="table table-striped table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>#번호</th>
