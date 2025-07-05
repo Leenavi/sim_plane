@@ -1,7 +1,12 @@
-  <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-  <%@ include file="../includes/header.jsp" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="../includes/header.jsp" %>
 
+<link rel="stylesheet" href="<c:url value='/resources/dist/css/createTest.css' />" />
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="test-create-container">
   <h2>🧠 심리테스트 생성</h2>
 
   <form method="post" action="/test/createTest" id="testForm">
@@ -22,8 +27,9 @@
     <br><br>
     <button type="submit">✅ 테스트 저장</button>
   </form>
+</div>
 
-  <script src="${pageContext.request.contextPath}/resources/js/createTest.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/createTest.js"></script>
 
 
-  <%@ include file="../includes/footer.jsp" %>
+<%@ include file="../includes/footer.jsp" %>

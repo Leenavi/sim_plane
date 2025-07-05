@@ -1,0 +1,57 @@
+/* 회원가입 카드 스타일 */
+.login-form-area {
+    background: linear-gradient(to bottom right, white, #fdf6e3);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+.login-wrap {
+    padding: 20px;
+}
+
+.login-form-area h1.h-tit {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+.krds-input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.krds-btn {
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+.krds-btn.primary {
+    background: linear-gradient(to right, #ffe066, #f9c80e);
+    color: black;
+
+}
+
+.krds-btn.primary:hover {
+    background: linear-gradient(to right, #f9c80e, #e6ac00);
+}

@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ include file="../includes/header.jsp" %>
+<link rel="stylesheet" href="<c:url value='/resources/dist/css/register.css' />" />
 
 <div class="container">
   <h2>게시글 상세보기</h2>
@@ -25,7 +26,7 @@
     <tr>
       <th>내용</th>
       <td colspan="3">
-        <pre style="white-space: pre-wrap; margin: 0; border: none; background-color: white;"><c:out value="${board.content}" /></pre>
+        <pre style="white-space: pre-wrap; margin: 0; border: none;"><c:out value="${board.content}" /></pre>
       </td>
     </tr>
 

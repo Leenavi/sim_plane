@@ -4,13 +4,14 @@
 
 html, body {
     height: 100%;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     background-color: #f0f9ff;
     color: #333333;
     font-family: 'Gowun Dodum', sans-serif;
     background-image: url("/resources/images/backgroundimage.png");
     background-size: cover;
+    width: 100%;
 }
 
 
@@ -19,6 +20,7 @@ html, body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .content {
@@ -32,6 +34,8 @@ html, body {
     align-items: flex-start; /* 세로 기준 위 정렬 */
     padding: 20px 30px;
     background-color: white;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* 로고 이미지 크게 */
@@ -90,4 +94,5 @@ footer {
     color: #444;
     height: 150px;
     padding: 20px;
+    width: 100%;
 }

@@ -8,7 +8,7 @@
 }
 
 .fortune-card {
-    background: #fff;
+    background: linear-gradient(to bottom right, white, #fdf6e3);
     border-radius: 18px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.09), 0 1.5px 4px rgba(0,0,0,0.04);
     padding: 40px 32px;
@@ -36,8 +36,8 @@
 
 .fortune-list a {
     display: block;
-    background: #f7fafd;
-    color: #4f8cff;
+    background: linear-gradient(to right, #ffe066, #f9c80e);
+    color: black;
     font-size: 1.17em;
     padding: 14px 0;
     border-radius: 10px;
@@ -48,8 +48,8 @@
 }
 
 .fortune-list a:hover {
-    background: #4f8cff;
-    color: #fff;
+    background: linear-gradient(to right, #f9c80e, #e6ac00);
+    color: black;
 }
 
 .fortune-center {
@@ -68,6 +68,7 @@
     width: 100%;
     margin: 32px 0;
     text-align: center;
+    background: linear-gradient(to bottom right, white, #fdf6e3);
 }
 
 .fortune-card h2 {
@@ -80,7 +81,7 @@
     display: block;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #4f8cff;
+    color: black;
     font-size: 1.1em;
 }
 
@@ -94,8 +95,8 @@
 }
 
 .fortune-btn {
-    background: #4f8cff;
-    color: #fff;
+    background: linear-gradient(to right, #ffe066, #f9c80e);
+    color: black;
     border: none;
     border-radius: 6px;
     padding: 9px 22px;
@@ -104,10 +105,11 @@
     margin-left: 10px;
     cursor: pointer;
     transition: background 0.2s;
+    font-family: 'Gowun Dodum', sans-serif;
 }
 
 .fortune-btn:hover {
-    background: #2563eb;
+    background: linear-gradient(to right, #f9c80e, #e6ac00);
 }
 
 hr {
@@ -117,7 +119,7 @@ hr {
 }
 
 #result h3 {
-    color: #2563eb;
+    background: linear-gradient(to right, #ffe066, #f9c80e);
     margin-bottom: 12px;
 }
 
@@ -128,7 +130,7 @@ hr {
 }
 
 #result li {
-    background: #f7fafd;
+    background: linear-gradient(to right, #ffe066, #f9c80e);
     border-radius: 10px;
     margin-bottom: 10px;
     padding: 10px 0;

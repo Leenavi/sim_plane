@@ -1,0 +1,55 @@
+/* 전체 카드형 박스 스타일 */
+.test-create-container {
+    background: linear-gradient(to bottom right, white, #fdf6e3);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 50px auto;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+/* 제목 스타일 */
+.test-create-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+/* label */
+.test-create-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+/* 텍스트 입력창 */
+.test-create-container input[type="text"],
+.test-create-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+/* 버튼 공통 */
+.test-create-container button {
+    background: linear-gradient(to right, #ffe066, #f9c80e);
+    color: black;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background 0.3s ease;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+/* 버튼 hover 효과 */
+.test-create-container button:hover {
+    background: linear-gradient(to right, #f9c80e, #e6ac00);
+}

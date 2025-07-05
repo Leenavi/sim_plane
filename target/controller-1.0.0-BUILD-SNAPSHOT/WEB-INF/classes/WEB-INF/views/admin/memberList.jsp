@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../includes/header.jsp" %>
 <link rel="stylesheet" href="<c:url value='/resources/dist/css/main.css' />">
+<link rel="stylesheet" href="<c:url value='/resources/dist/css/memberList.css' />" />
+
 
 
 <h1>회원 관리</h1>
@@ -38,7 +40,7 @@
 
                 <!-- 권한 수정 form -->
                 <td>
-                    <form action="/updateAuth" method="post" style="display: flex; gap: 5px;">
+                    <form action="/updateAuth" method="post" style="display: flex; gap: 5px; justify-content: center;">
                         <input type="hidden" name="memberid" value="${member.memberid}" />
                         <select name="auth">
                             <option value="ROLE_USER"

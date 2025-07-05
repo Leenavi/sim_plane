@@ -1,3 +1,6 @@
+.page-header {
+    text-align: center;
+}
 
 /* 게시판 패널 */
 .panel {
@@ -7,11 +10,13 @@
     border: none;
     margin-top: 24px;
     padding: 0 0 16px 0;
+    width: 1000px;
+    margin: 0 auto;
 }
 
 /* 패널 헤더 */
 .panel-heading {
-    background: linear-gradient(90deg, #b2ebf2 0%, #e1bee7 100%);
+    background: linear-gradient(to bottom right, white, #fdf6e3);
     border-radius: 24px 24px 0 0;
     padding: 16px 32px;
     font-size: 1.3rem;
@@ -24,7 +29,7 @@
 
 /* 새글 등록 버튼 */
 #regBtn {
-    background: #ffb74d;
+    background: linear-gradient(to right, #ffe066, #f9c80e);
     color: #fff;
     border: none;
     border-radius: 16px;
@@ -35,7 +40,7 @@
     cursor: pointer;
 }
 #regBtn:hover {
-    background: #ffa726;
+    background: linear-gradient(to right, #f9c80e, #e6ac00);
 }
 
 /* 게시판 테이블 */
@@ -55,7 +60,7 @@
     font-size: 1.05rem;
 }
 .table th {
-    background: #b3e5fc;
+    background: linear-gradient(to right, #ffe066, #f9c80e);
     color: #444;
     font-weight: 700;
     border-bottom: 2px solid #90caf9;
@@ -64,7 +69,7 @@
     transition: background 0.18s;
 }
 .table tr:hover {
-    background: #e1f5fe;
+    background: #fdf6e3;
 }
 .table td {
     border-bottom: 1px solid #e0e0e0;
@@ -79,20 +84,20 @@
     align-items: center;
 }
 #searchForm select, #searchForm input[type="text"] {
-    border: 1.5px solid #b3e5fc;
+    border: 1.5px solid #ffe066;
     border-radius: 12px;
     padding: 6px 14px;
     font-size: 1rem;
-    background: #f8ffff;
+    background: #fdf6e3;
     outline: none;
     transition: border-color 0.2s;
 }
 #searchForm select:focus, #searchForm input[type="text"]:focus {
-    border-color: #81d4fa;
+    border-color: #fdf6e3;
 }
 #searchForm button {
-    background: #81d4fa;
-    color: #fff;
+    background: linear-gradient(to right, #ffe066, #f9c80e);
+    color: black;
     border: none;
     border-radius: 12px;
     padding: 6px 18px;
@@ -100,9 +105,10 @@
     margin-left: 6px;
     cursor: pointer;
     transition: background 0.2s;
+    font-family: 'Gowun Dodum', sans-serif;
 }
 #searchForm button:hover {
-    background: #4fc3f7;
+    background: linear-gradient(to right, #f9c80e, #e6ac00);
 }
 
 /* 페이징 */
@@ -122,8 +128,8 @@
     display: block;
     padding: 8px 14px;
     background: #fff;
-    color: #1976d2;
-    border: 1.5px solid #b3e5fc;
+    color: #f9c80e;
+    border: 1.5px solid #f9c80e;
     border-radius: 50%;
     font-weight: 500;
     text-decoration: none;
@@ -131,18 +137,19 @@
 }
 .page-item.active .page-link,
 .page-link:hover {
-    background: #b3e5fc;
-    color: #fff;
+    background: #fdf6e3;
+    color: black;
 }
 
 /* 모달 */
 .modal-content {
     border-radius: 20px;
-    background: #fff;
-    box-shadow: 0 6px 24px rgba(100,150,255,0.13);
+    background: #fdf6e3;
+    box-shadow: 0 6px 24px rgb(248, 242, 160);
+    font-family: 'Gowun Dodum', sans-serif;
 }
 .modal-header {
-    background: #b2ebf2;
+    background: #fdf6e3;
     border-radius: 20px 20px 0 0;
     color: #444;
 }
@@ -158,17 +165,17 @@
 }
 .btn-danger {
     background: #ef9a9a;
-    color: #fff;
+    color: black;
 }
 .btn-danger:hover {
     background: #e57373;
 }
 .btn-primary {
-    background: #81d4fa;
-    color: #fff;
+    background: linear-gradient(to right, #ffe066, #f9c80e);
+    color: black;
 }
 .btn-primary:hover {
-    background: #4fc3f7;
+    background: linear-gradient(to right, #f9c80e, #e6ac00);
 }
 
 /* 반응형 */

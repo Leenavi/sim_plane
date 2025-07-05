@@ -17,20 +17,20 @@
 
 	<section>
 		<article>
-			<h3>포춘쿠키</h3>
-			<a href="#"><img src="/resources/images/animals.png"></a>
+			<h3>나는 어떤 영화 캐릭터?</h3>
+			<a href="http://localhost:8080/test/start?testid=3"><img src="/resources/images/animals.png"></a>
 		</article>
 		<article>
 			<h3>당신의 이상적인 휴가 스타일은?</h3>
-			<a href="#"><img src="/resources/images/animals.png"></a>
+			<a href="http://localhost:8080/test/start?testid=4"><img src="/resources/images/animals.png"></a>
 		</article>
 		<article>
-			<h3>올해의 운세</h3>
-			<a href="#"><img src="/resources/images/animals.png"></a>
+			<h3>당신의 감정 표현 스타일은?</h3>
+			<a href="http://localhost:8080/test/start?testid=6"><img src="/resources/images/animals.png"></a>
 		</article>
 		<article>
-			<h3>당신은 어떤 동물 유형일까? 2탄</h3>
-			<a href="#"><img src="/resources/images/animals.png"></a>
+			<h3>나는 전생에 어떤 동물이였을까?</h3>
+			<a href="http://localhost:8080/test/start?testid=1"><img src="/resources/images/animals.png"></a>
 		</article>
 	</section>
 </main>

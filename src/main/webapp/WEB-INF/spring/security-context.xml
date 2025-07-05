@@ -19,7 +19,7 @@
 	</beans:bean>
 
 	<beans:bean id="bcryptPasswordEncoder"
-		  class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></beans:bean>
+				class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></beans:bean>
 
 
 	<!-- 모든 요청 인증 필요 -->
@@ -32,7 +32,7 @@
 
 		<!-- 누구나 접근 가능한 URL -->
 		<intercept-url pattern="/resources/**" access="permitAll()" />
-		<intercept-url pattern="/login" access="permitAll()" /> <!-- 로그인 -->
+		<intercept-url pattern="/customlogin" access="permitAll()" /> <!-- 로그인 -->
 		<intercept-url pattern="/signup" access="permitAll()" /><!-- 회원가입 -->
 		<intercept-url pattern="/" access="permitAll()" /><!-- 홈페이지 -->
 		<intercept-url pattern="/board/list" access="permitAll()"/><!-- 게시판 -->
@@ -47,10 +47,14 @@
 		<intercept-url pattern="/**" access="isAuthenticated()" />
 
 		<form-login
+				login-page="/customlogin"
+				authentication-failure-url="/customlogin?error"
+				username-parameter="username"
+				password-parameter="password"
 				default-target-url="/"
 				always-use-default-target="true"
 		/>
-		<logout logout-success-url="/login"/>
+		<logout logout-success-url="/"/>
 		<csrf disabled="true"/>
 	</http>
 

@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ include file="../includes/header.jsp" %>
 <link rel="stylesheet" href="<c:url value='/resources/dist/css/main.css' />" />
+<link rel="stylesheet" href="<c:url value='/resources/dist/css/register.css' />" />
+
 
 <div class="container">
   <h2>게시글 수정</h2>

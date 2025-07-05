@@ -1,0 +1,65 @@
+/* 로그인 창 위치를 정중앙 정렬 */
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;               /* Flex 부모 기준 꽉 차게 */
+    flex-direction: column;
+    min-height: calc(100vh - 200px);  /* header + footer 고려 */
+    padding: 40px 0;
+    box-sizing: border-box;
+}
+
+/* 로그인 박스 스타일 */
+.login-form-container {
+    background: linear-gradient(to bottom right, white, #fdf6e3);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 360px;
+}
+
+/* 제목 */
+.login-form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: black;
+}
+
+/* 라벨 */
+.login-form-container label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: black;
+}
+
+/* 입력창 */
+.login-form-container input[type="text"],
+.login-form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}
+
+/* 버튼 */
+.login-form-container button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #ffe066, #f9c80e);
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+.login-form-container button:hover {
+    background: linear-gradient(to right, #f9c80e, #e6ac00);
+}

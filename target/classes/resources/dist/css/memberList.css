@@ -1,0 +1,100 @@
+/* 공통 컨테이너 스타일 */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+}
+
+/* 제목 스타일 */
+h1 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #2a3b4c;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+/* 테이블 기본 스타일 */
+table {
+    width: 1200px;
+    border-collapse: collapse;
+    background: #f8fafc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    margin: 0 auto;
+}
+
+th, td {
+    padding: 13px 14px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 1rem;
+}
+
+th {
+    background: #e9f1fa;
+    color: #2a3b4c;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* 링크 스타일 */
+a.move {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+a.move:hover {
+    color: #0d47a1;
+    text-decoration: underline;
+}
+
+/* 셀렉트, 버튼 스타일 */
+select {
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid #b0bec5;
+    background: #fff;
+    font-size: 1rem;
+}
+
+button[type="submit"] {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button[type="submit"]:hover {
+    background: #1565c0;
+}
+
+/* 반응형 */
+@media (max-width: 700px) {
+    .container {
+        padding: 10px;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background: #e9f1fa;
+    }
+}

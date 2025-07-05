@@ -5,6 +5,7 @@ ul.pagination {
     padding: 0;
     display: flex;
     justify-content: center;
+    background: linear-gradient(to bottom right, #fdf6e3, #ffefc2);
 }
 
 ul.pagination li {
@@ -13,7 +14,7 @@ ul.pagination li {
 
 ul.pagination li a {
     text-decoration: none;
-    color: #007bff;
+    color: #ffe066;
     border: 1px solid #ccc;
     padding: 5px 10px;
     border-radius: 3px;
@@ -23,28 +24,29 @@ ul.pagination li.active a {
     font-weight: bold;
     background-color: #e9ecef;
 }
- .pagination {
-     display: flex;
-     list-style: none;
-     padding-left: 0;
-     justify-content: center;
-     margin-top: 20px;
- }
+.pagination {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    justify-content: center;
+    margin-top: 20px;
+}
 .page-item {
     margin: 0 5px;
 }
 .page-link {
     display: block;
     padding: 6px 12px;
-    background-color: #f8f9fa;
+    background: linear-gradient(to bottom right, #fdf6e3, #ffefc2);
     border: 1px solid #dee2e6;
-    color: #007bff;
+    color: #ffe066;
     text-decoration: none;
     border-radius: 4px;
+    font-family: 'Gowun Dodum', sans-serif;
 }
 .page-item.active .page-link {
-    background-color: #007bff;
-    color: white;
+    background: linear-gradient(to bottom right, #fdf6e3, #ffefc2);
+    font-family: 'Gowun Dodum', sans-serif;
 }
 
 /* 테스트 + 댓글 화면 */
@@ -64,6 +66,8 @@ ul.pagination li.active a {
     max-width: 480px;
     width: 100%;
     margin: 32px 0;
+    font-family: 'Gowun Dodum', sans-serif;
+    background: linear-gradient(to bottom right, white, #fdf6e3);
 }
 
 #test-section, #result-section, #comment-section {
@@ -96,8 +100,8 @@ ul.pagination li.active a {
 }
 
 button, .page-link {
-    background: #4f8cff;
-    color: #fff;
+    background: linear-gradient(to right, #ffe066, #f9c80e);
+    color: black;
     border: none;
     border-radius: 6px;
     padding: 8px 16px;
@@ -106,10 +110,11 @@ button, .page-link {
     font-weight: 600;
     transition: background 0.2s;
     font-size: 15px;
+    font-family: 'Gowun Dodum', sans-serif;
 }
 
 button:hover, .page-link:hover {
-    background: #2563eb;
+    background: linear-gradient(to right, #f9c80e, #e6ac00);
 }
 
 ul.pagination {
@@ -124,7 +129,7 @@ ul.pagination li {
 }
 
 ul.pagination .active .page-link {
-    background: #2563eb;
+    background: linear-gradient(to right, #f9c80e, #e6ac00);
     font-weight: bold;
 }
 
